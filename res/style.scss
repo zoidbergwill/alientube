@@ -17,10 +17,12 @@ body {
     background: #fff;
     box-shadow: 0 1px 2px rgba(0,0,0,.1);
     overflow: hidden;
+    font-size: 13px;
 
     & a {
         color: #0066aa;
         cursor: pointer;
+        text-decoration: none;
     }
 
     & a:hover {
@@ -916,7 +918,7 @@ a[href$="/spoiler"]::before {
 }
 
 .darkmode {
-    background: #242424 !important;
+    background: #111 !important;
     color: #fff;
     
     select {
@@ -927,12 +929,21 @@ a[href$="/spoiler"]::before {
         background: #3e3e3e!important;
     }
 
+    & a {
+        color: #FFF !important;
+    }
+
+    & a:hover {
+        color: #FFF !important;
+    }
+
     & .at_tab {
         text-shadow: none;
-        background: #242424 !important;
+        background: #111 !important;
+        border-bottom: 1px solid #242424;
 
         & a {
-            color: #555555 !important;
+            color: #999999 !important;
         }
         
         &:hover {
@@ -1001,10 +1012,6 @@ a[href$="/spoiler"]::before {
     
     &.darkmode .at_tab.active {
         border-bottom: 5px solid #ff5353;
-
-        & a {
-            color: #0066aa !important;
-        }
     }
     
     #at_overflow > ul > li:hover {
