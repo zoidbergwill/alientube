@@ -11,7 +11,6 @@ interface Navigator {
 }
 
 interface HTMLLinkElement {
-	import;
 }
 
 interface HTMLElement {
