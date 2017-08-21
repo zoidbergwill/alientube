@@ -39,8 +39,12 @@ function at_initialise() {
     }
 }
 
-if (document.readyState === "complete" || document.readyState === "interactive") {
-    at_initialise();
+if (window.location.host.indexOf("youtube") !== -1) {
+    document.addEventListener("yt-navigate-finish", at_initialise, false);
 } else {
-    document.addEventListener("DOMContentLoaded", at_initialise, false);
+    if (document.readyState === "complete" || document.readyState === "interactive") {
+        at_initialise();
+    } else {
+        document.addEventListener("DOMContentLoaded", at_initialise, false);
+    }
 }
