@@ -108,9 +108,9 @@ echo
 echo ${standout}Compiling TypeScript Files.${normal}
 if [ "$1" == "--debug" ]; then
     echo Compiling Options page TypeScript in ES5 compatibility mode without comments with source map.
-    tsc --target ES5 --out lib/options-es5.js TypeScript/typings/es5-compatibility.ts TypeScript/Options/Options.ts --removeComments --sourcemap
+    tsc --target ES5 --out lib/options-es5.js TypeScript/Options/Options.ts --removeComments --sourcemap
     echo Compiling Application TypeScript in ES5 compatibility mode without comments with source map.
-    tsc --target ES5 --out lib/script-es5.js TypeScript/typings/es5-compatibility.ts TypeScript/index.ts --removeComments --sourcemap
+    tsc --target ES5 --out lib/script-es5.js TypeScript/index.ts --removeComments --sourcemap
     
     echo Compiling Options page TypeScript file without comments with source map.
     tsc --target ES6 --out lib/options.js TypeScript/Options/Options.ts --removeComments --sourcemap
@@ -118,9 +118,9 @@ if [ "$1" == "--debug" ]; then
     tsc --target ES6 --out lib/script.js TypeScript/index.ts --removeComments --sourcemap
 else
     echo Compiling Options page TypeScript in ES5 compatibility mode with comments.
-    tsc --target ES5 --out lib/options-es5.js TypeScript/typings/es5-compatibility.ts TypeScript/Options/Options.ts
+    tsc --target ES2015 --out lib/options-es5.js TypeScript/Options/Options.ts
     echo Compiling Application page TypeScript in ES5 compatibility mode with comments.
-    tsc --target ES5 --out lib/script-es5.js TypeScript/typings/es5-compatibility.ts TypeScript/index.ts
+    tsc --target ES2015 --out lib/script-es5.js TypeScript/index.ts
     
     echo Compiling Options page TypeScript file with comments.
     tsc --target ES6 --out lib/options.js TypeScript/Options/Options.ts
