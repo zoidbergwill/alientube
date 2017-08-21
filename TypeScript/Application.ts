@@ -42,12 +42,12 @@ module AlienTube {
                     // Start observer to detect when a new video is loaded.
                     let observer = new MutationObserver(this.youtubeMutationObserver);
                     let config = { attributes: true, childList: true, characterData: true };
-                    observer.observe(document.getElementById("content"), config);
+                    //observer.observe(document.querySelector("content"), config);
                     
                     // Start a new comment section.
                     this.currentVideoIdentifier = Application.getCurrentVideoId();
                     if (Utilities.isVideoPage) {
-                        Application.commentSection = new CommentSection(this.currentVideoIdentifier);
+                        this.waitForYTComments();
                     }
                 } else if (Application.currentMediaService() === Service.Vimeo) {
                     // Start observer to detect when a new video is loaded.
@@ -56,6 +56,15 @@ module AlienTube {
                     observer.observe(document.querySelector(".extras_wrapper"), config);
                 }
             }.bind(this));
+        }
+
+        private waitForYTComments() {
+            if (!document.getElementById("contents") || document.getElementById("contents").childElementCount == 0) {
+                setTimeout(() => {this.waitForYTComments()}, 500);
+                return;
+            }
+
+            setTimeout(() => {Application.commentSection = new CommentSection(this.currentVideoIdentifier)}, 500);
         }
 
         /**
