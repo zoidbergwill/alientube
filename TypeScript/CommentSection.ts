@@ -183,8 +183,8 @@ module AlienTube {
             let commentsContainer;
             let serviceCommentsContainer;
             if (Application.currentMediaService() === Service.YouTube) {
-                commentsContainer = document.getElementById("watch7-content");
-                serviceCommentsContainer = document.getElementById("watch-discussion");
+                commentsContainer = document.querySelector("ytd-comments#comments");
+                serviceCommentsContainer = document.querySelector("ytd-comments#comments > ytd-item-section-renderer");
             } else if (Application.currentMediaService() === Service.Vimeo) {
                 commentsContainer = document.querySelector(".comments_container");
                 serviceCommentsContainer = document.querySelector(".comments_hide");
@@ -231,7 +231,7 @@ module AlienTube {
             if (!allowOnChannelContainer) {
                 let actionsContainer;
                 if (Application.currentMediaService() === Service.YouTube) {
-                    actionsContainer = document.getElementById("watch7-user-header");
+                    actionsContainer = document.querySelector("ytd-video-owner-renderer");
                 } else if (Application.currentMediaService() === Service.Vimeo) {
                     actionsContainer = document.querySelector(".video_meta .byline");
                 }
@@ -311,7 +311,7 @@ module AlienTube {
             let len = this.threadCollection.length;
             let maxWidth;
             if (Application.currentMediaService() === Service.YouTube) {
-                maxWidth = document.getElementById("watch7-content").offsetWidth - 80;
+                maxWidth = document.getElementById("comments").offsetWidth - 80;
             } else if (Application.currentMediaService() === Service.Vimeo) {
                 maxWidth = document.getElementById("comments").offsetWidth - 80;
             }
@@ -399,7 +399,7 @@ module AlienTube {
             let googlePlusButton = template.querySelector("#at_switchtogplus");
             googlePlusButton.addEventListener("click", this.onGooglePlusClick, false);
 
-            let googlePlusContainer = document.getElementById("watch-discussion");
+            let googlePlusContainer = <HTMLElement>document.querySelector("#comments > .ytd-comments");
             
             if (Preferences.getBoolean("showGooglePlusButton") === false || googlePlusContainer === null) {
                 googlePlusButton.style.display = "none";
@@ -425,7 +425,7 @@ module AlienTube {
          * @private
          */
         private onRedditClick(eventObject: Event) {
-            let googlePlusContainer = document.getElementById("watch-discussion");
+            let googlePlusContainer = <HTMLElement>document.querySelector("#comments > .ytd-comments");
             googlePlusContainer.style.visibility = "collapse";
             googlePlusContainer.style.height = "0";
             let alienTubeContainer = document.getElementById("alientube");
@@ -442,7 +442,7 @@ module AlienTube {
         private onGooglePlusClick(eventObject: Event) {
             let alienTubeContainer = document.getElementById("alientube");
             alienTubeContainer.style.display = "none";
-            let googlePlusContainer = document.getElementById("watch-discussion");
+            let googlePlusContainer = <HTMLElement>document.querySelector("#comments > .ytd-comments");
             googlePlusContainer.style.visibility = "visible";
             googlePlusContainer.style.height = "auto";
             let redditButton = <HTMLDivElement> document.getElementById("at_switchtoreddit");
@@ -569,7 +569,7 @@ module AlienTube {
          */
         private allowOnChannelChange(eventObject: Event) {
             let allowedOnChannel = (<HTMLInputElement>eventObject.target).checked;
-            let channelId = document.querySelector("meta[itemprop='channelId']").getAttribute("content");
+            let channelId = document.querySelector(".ytd-video-owner-renderer > a").getAttribute("href").split("/").pop();
             let channelDisplayActions = Preferences.getObject("channelDisplayActions");
             channelDisplayActions[channelId] = allowedOnChannel ? "alientube" : "gplus";
             Preferences.set("channelDisplayActions", channelDisplayActions);
@@ -582,7 +582,7 @@ module AlienTube {
         private getDisplayActionForCurrentChannel() {
             let channelId;
             if (Application.currentMediaService() === Service.YouTube) {
-                channelId = document.querySelector("meta[itemprop='channelId']").getAttribute("content");
+                channelId = document.querySelector(".ytd-video-owner-renderer > a").getAttribute("href").split("/").pop();
             } else if (Application.currentMediaService() === Service.Vimeo) {
                 channelId = document.querySelector("a[rel='author']").getAttribute("href").substring(1);
             }
