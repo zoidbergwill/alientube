@@ -59,9 +59,16 @@ module AlienTube {
         }
 
         private waitForYTComments() {
-            if (!document.getElementById("contents") || document.getElementById("contents").childElementCount == 0) {
+            if (!document.getElementById("contents")) {
                 setTimeout(() => {this.waitForYTComments()}, 500);
                 return;
+            }
+            if (document.getElementById("contents").childElementCount == 0) {
+                var commentsHeader = document.getElementsByClassName('ytd-comments-header-renderer count-text');
+                if (commentsHeader.length && /^[^0]/.test(commentsHeader[0].innerHTML)) {
+                    setTimeout(() => {this.waitForYTComments()}, 500);
+                    return;
+                }
             }
 
             setTimeout(() => {Application.commentSection = new CommentSection(this.currentVideoIdentifier)}, 500);
