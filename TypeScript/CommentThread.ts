@@ -171,7 +171,7 @@ module AlienTube {
             let googlePlusButton = <HTMLButtonElement> this.threadContainer.querySelector("#at_switchtogplus");
             googlePlusButton.addEventListener("click", this.onGooglePlusClick, false);
 
-            let googlePlusContainer = <HTMLElement>document.querySelector("#comments > .ytd-comments");
+            let googlePlusContainer = <HTMLElement>document.querySelector("ytd-comments#comments > ytd-item-section-renderer");
             if (Preferences.getBoolean("showGooglePlusButton") === false ||  googlePlusContainer === null) {
                 googlePlusButton.style.display = "none";
             }
