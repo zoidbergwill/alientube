@@ -231,7 +231,7 @@ module AlienTube {
             if (!allowOnChannelContainer) {
                 let actionsContainer;
                 if (Application.currentMediaService() === Service.YouTube) {
-                    actionsContainer = document.querySelector("ytd-video-owner-renderer");
+                    actionsContainer = document.querySelector("#upload-info");
                 } else if (Application.currentMediaService() === Service.Vimeo) {
                     actionsContainer = document.querySelector(".video_meta .byline");
                 }

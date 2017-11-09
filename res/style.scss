@@ -995,7 +995,11 @@ a[href$="/spoiler"]::before {
 }
 
 #allowOnChannelContainer {
-    margin-left: 15px;
+    font-size: 1.2em;
+}
+
+[dark] #allowOnChannelContainer {
+    color: #f6f6f6 !important;
 }
 
 #alientube[service='YouTube'] {
