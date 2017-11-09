@@ -256,7 +256,7 @@ module AlienTube {
         private onGooglePlusClick(eventObject: Event) {
             let alienTubeContainer = document.getElementById("alientube");
             alienTubeContainer.style.display = "none";
-            let googlePlusContainer = <HTMLElement>document.querySelector("#comments > .ytd-comments");
+            let googlePlusContainer = <HTMLElement>document.querySelector("ytd-comments#comments > ytd-item-section-renderer");
             googlePlusContainer.style.visibility = "visible";
             googlePlusContainer.style.height = "auto";
             let redditButton = <HTMLDivElement> document.getElementById("at_switchtoreddit");

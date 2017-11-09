@@ -409,7 +409,7 @@ module AlienTube {
 
             if (Preferences.getBoolean("showGooglePlusWhenNoPosts") && googlePlusContainer) {
                 googlePlusContainer.style.visibility = "visible";
-            googlePlusContainer.style.height = "auto";
+                googlePlusContainer.style.height = "auto";
                 document.getElementById("alientube").style.display = "none";
 
                 let redditButton = <HTMLDivElement> document.getElementById("at_switchtoreddit");
@@ -425,7 +425,7 @@ module AlienTube {
          * @private
          */
         private onRedditClick(eventObject: Event) {
-            let googlePlusContainer = <HTMLElement>document.querySelector("#comments > .ytd-comments");
+            let googlePlusContainer = <HTMLElement>document.querySelector("ytd-comments#comments > ytd-item-section-renderer");
             googlePlusContainer.style.visibility = "collapse";
             googlePlusContainer.style.height = "0";
             let alienTubeContainer = document.getElementById("alientube");
@@ -442,7 +442,7 @@ module AlienTube {
         private onGooglePlusClick(eventObject: Event) {
             let alienTubeContainer = document.getElementById("alientube");
             alienTubeContainer.style.display = "none";
-            let googlePlusContainer = <HTMLElement>document.querySelector("#comments > .ytd-comments");
+            let googlePlusContainer = <HTMLElement>document.querySelector("ytd-comments#comments > ytd-item-section-renderer");
             googlePlusContainer.style.visibility = "visible";
             googlePlusContainer.style.height = "auto";
             let redditButton = <HTMLDivElement> document.getElementById("at_switchtoreddit");

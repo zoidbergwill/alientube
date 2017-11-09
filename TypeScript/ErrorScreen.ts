@@ -107,7 +107,7 @@ module AlienTube {
         private onGooglePlusClick(eventObject: Event) {
             var alienTubeContainer = document.getElementById("alientube");
             alienTubeContainer.style.display = "none";
-            var googlePlusContainer = document.getElementById("watch-discussion");
+            var googlePlusContainer = <HTMLElement>document.querySelector("ytd-comments#comments > ytd-item-section-renderer");
             googlePlusContainer.style.visibility = "visible";
             googlePlusContainer.style.height = "auto";
             var redditButton = <HTMLDivElement> document.getElementById("at_switchtoreddit");
