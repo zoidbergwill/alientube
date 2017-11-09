@@ -627,7 +627,7 @@ module AlienTube {
                 bodyBackgroundColourAverage = bodyBackgroundColourAverage + parseInt(bodyBackgroundColourArray[i], 10);
             }
             bodyBackgroundColourAverage = bodyBackgroundColourAverage / 3;
-            if (bodyBackgroundColourAverage < 100 || document.body.getAttribute("dark")) {
+            if (bodyBackgroundColourAverage < 100 || document.documentElement.getAttribute("dark")) {
                 alientubeContainer.classList.add("darkmode");
             } else {
                 alientubeContainer.classList.remove("darkmode");
