@@ -31,7 +31,7 @@ module AlienTube {
             /* Show / collapse function for the comment */
             let toggleHide = this.representedHTMLElement.querySelector(".at_togglehide");
             toggleHide.addEventListener("click", function() {
-                this.representedHTMLElement.classList.add("minimized");
+                this.representedHTMLElement.classList.toggle("minimized");
             }.bind(this), false);
 
             /* Hide comments with a score less than the threshold set by the user  */
