@@ -31,16 +31,12 @@ module AlienTube {
             /* Show / collapse function for the comment */
             let toggleHide = this.representedHTMLElement.querySelector(".at_togglehide");
             toggleHide.addEventListener("click", function() {
-                if (this.representedHTMLElement.classList.contains("hidden")) {
-                    this.representedHTMLElement.classList.remove("hidden")
-                } else {
-                    this.representedHTMLElement.classList.add("hidden");
-                }
+                this.representedHTMLElement.classList.add("minimized");
             }.bind(this), false);
 
             /* Hide comments with a score less than the threshold set by the user  */
             if (this.commentObject.score < Preferences.getNumber("hiddenCommentScoreThreshold")) {
-                this.representedHTMLElement.classList.add("hidden");
+                this.representedHTMLElement.classList.add("minimized");
             }
 
             /* Set the link and name of author, as well as whether they are the OP or not. */
