@@ -16,7 +16,6 @@ body {
     box-sizing: border-box;
     background: #fff;
     box-shadow: 0 1px 2px rgba(0,0,0,.1);
-    overflow: hidden;
     font-size: 13px;
 
     & a {
@@ -708,12 +707,14 @@ body {
     & ul {
         min-width: 130px;
         max-width: 250px;
+		list-style: none;
+		padding: 0;
         text-overflow: ellipsis;
         box-sizing: border-box;
         opacity: 1;
         border: 1px solid #ccc;
         background: #fff;
-        margin-top: 30px;
+        margin-top: 43px;
         display: none;
         position: relative;
         white-space: nowrap;
