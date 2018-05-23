@@ -153,7 +153,7 @@ body {
             display: none;
             font-size: x-small;
         }
-        
+
         & .options {
             margin-top: 5px;
         }
@@ -184,7 +184,7 @@ body {
             background-color: transparent;
             padding-left: 8px;
         }
-        
+
         & .sortContainer:before {
             content: '▼';
             margin-right: -10px;
@@ -294,14 +294,14 @@ body {
                 padding: 0 2px 0 2px;
                 background-color: #2b6ed1;
             }
-            
+
             &[data-reddit-admin] {
                 color: #FFFFFF !important;
                 font-weight: bold;
                 padding: 0 2px 0 2px;
                 background-color: #d12b2b;
             }
-            
+
             &[data-reddit-mod] {
                 color: #FFFFFF !important;
                 font-weight: bold;
@@ -335,38 +335,38 @@ body {
                 border-left: 3px solid #a4b0cb;
                 padding-left: 5px;
             }
-            
+
             h1 {
                 font-size: 150%;
             }
-            
+
             h2 {
                 font-size: 125%;
             }
-            
+
             ul {
                 list-style-type: disc;
             }
-            
+
             ol {
                 list-style-type: decimal;
             }
-            
+
             li {
                 margin-top: 5px;
                 margin-bottom: 5px;
             }
-            
+
             td, th {
                 border: 1px solid #999;
                 padding: 0.5rem;
             }
-            
+
             sup {
                 font-size: smaller;
                 vertical-align: super;
             }
-            
+
             sub {
                 font-size: smaller;
                 vertical-align: sub;
@@ -596,7 +596,7 @@ body {
         & > a {
             pointer-events: auto;
         }
-        
+
         &:hover {
             background: #fff;
         }
@@ -619,7 +619,7 @@ body {
     position: relative;
     @include display(flex);
     @include flex-direction(row);
-    
+
     &.single .at_tab.active {
         padding-bottom: 5px;
         border-bottom: 0;
@@ -672,10 +672,10 @@ body {
     border-left: none;
     border-bottom: none;
     cursor: pointer;
-    
+
     &.show {
         background: #f8f8f8;
-        
+
         & ul {
             display: block;
         }
@@ -707,8 +707,8 @@ body {
     & ul {
         min-width: 130px;
         max-width: 250px;
-		list-style: none;
-		padding: 0;
+        list-style: none;
+        padding: 0;
         text-overflow: ellipsis;
         box-sizing: border-box;
         opacity: 1;
@@ -921,11 +921,11 @@ a[href$="/spoiler"]::before {
 .darkmode {
     background: #111 !important;
     color: #fff;
-    
+
     select {
         background: #242424 !important;
     }
-    
+
     textarea {
         background: #3e3e3e!important;
     }
@@ -946,14 +946,14 @@ a[href$="/spoiler"]::before {
         & a {
             color: #999999 !important;
         }
-        
+
         &:hover {
             background: #2f2f2f !important;
         }
 
         &.active {
             padding-bottom: 0;
-            
+
             &:hover {
                 background: #242424 !important;
             }
@@ -985,11 +985,11 @@ a[href$="/spoiler"]::before {
     & #at_switchtoreddit svg {
         fill: #fff;
     }
-    
+
     & .at_writingauthor {
         color: #acacac;
     }
-    
+
     & .at_replies article {
         border-left: 1px dotted #7c7c7c !important;
     }
@@ -1005,7 +1005,7 @@ a[href$="/spoiler"]::before {
 
 #alientube[service='YouTube'] {
     margin-top: 30px;
-    
+
     & .at_tab.active {
         border-bottom: 5px solid #fd4040;
 
@@ -1014,11 +1014,11 @@ a[href$="/spoiler"]::before {
             color: #fd4040 !important;
         }
     }
-    
+
     &.darkmode .at_tab.active {
         border-bottom: 5px solid #ff5353;
     }
-    
+
     #at_overflow > ul > li:hover {
         background: #fd4040;
     }
@@ -1027,7 +1027,7 @@ a[href$="/spoiler"]::before {
 #alientube[service='Vimeo'] {
     box-shadow: none;
     border: 0;
-    
+
     & .at_tab.active {
         border-bottom: 5px solid #4bf;
 
@@ -1036,7 +1036,7 @@ a[href$="/spoiler"]::before {
             color: #4bf !important;
         }
     }
-    
+
     &.darkmode .at_tab.active {
         border-bottom: 5px solid #4bf;
 
@@ -1044,7 +1044,7 @@ a[href$="/spoiler"]::before {
             color: #4bf !important;
         }
     }
-    
+
     #at_overflow > ul > li:hover {
         background: #4bf;
     }
