@@ -218,11 +218,12 @@ module AlienTube {
                 }
 
                 if (this.getDisplayActionForCurrentChannel() === "gplus") {
-                    redditContainer.style.display = "none"
+                    redditContainer.style.display = "none";
                     redditButton.style.display = "block";
                 } else {
-                    serviceCommentsContainer.style.visibility = "collapse"
-                    serviceCommentsContainer.style.height = "0"
+                    serviceCommentsContainer.style.visibility = "collapse";
+                    serviceCommentsContainer.style.height = "0";
+                    serviceCommentsContainer.style.overflow = "hidden";
                 }
             }
 
