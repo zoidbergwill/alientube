@@ -221,7 +221,7 @@ module AlienTube {
                     templateLink.id = "alientubeTemplate";
                     templateLink.onload = function () {
                         if (callback) {
-                            callback(templateLink.import);
+                            callback((<any>templateLink).import);
                         }
                     }.bind(this);
                     templateLink.setAttribute("rel", "import");

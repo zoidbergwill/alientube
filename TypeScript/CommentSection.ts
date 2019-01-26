@@ -197,13 +197,13 @@ module AlienTube {
 
 
             /* Check if Dark Mode is activated, and set AlienTube to dark mode */
-            this.checkEnvironmentDarkModestatus(redditContainer);
+            (<any>this).checkEnvironmentDarkModestatus(redditContainer);
 
             /* Since there is no implicit event for a css property has changed, I have set a small transition on the body background colour.
                this transition will trigger the transitionend event and we can use that to check if the background colour has changed, thereby activating dark mode. */
             document.body.addEventListener("transitionend", function (e : TransitionEvent) {
                 if (e.propertyName === "background-color" && e.srcElement.tagName === "BODY") {
-                    this.checkEnvironmentDarkModestatus(document.getElementById("alientube"));
+                    (<any>this).checkEnvironmentDarkModestatus(document.getElementById("alientube"));
                 }
             }, false);
 

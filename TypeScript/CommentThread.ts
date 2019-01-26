@@ -147,7 +147,7 @@ module AlienTube {
             sortController.addEventListener("change", function () {
                 Preferences.set("threadSortType", sortController.children[sortController.selectedIndex].getAttribute("value"));
 
-                this.commentSection.threadCollection.forEach(function (item) {
+                (<any>this).commentSection.threadCollection.forEach(function (item) {
                     if (item.id === this.threadInformation.id) {
                         this.commentSection.downloadThread(item);
                     }
