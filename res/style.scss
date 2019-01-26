@@ -20,13 +20,13 @@ body {
     overflow: visible;
 
     & a {
-        color: #0066aa;
+        color: #065fd4;
         cursor: pointer;
         text-decoration: none;
     }
 
     & a:hover {
-        color: #0066aa;
+        color: #065fd4;
         text-decoration: underline;
     }
 
@@ -932,11 +932,11 @@ a[href$="/spoiler"]::before {
     }
 
     & a {
-        color: #FFF !important;
+        color: #3ea6ff !important;
     }
 
     & a:hover {
-        color: #FFF !important;
+        color: #3ea6ff !important;
     }
 
     & .at_tab {
