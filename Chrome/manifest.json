@@ -28,7 +28,7 @@
     "https://api.reddit.com/",
     "storage"
   ],
-  
+
   "optional_permissions": [
     "*://vimeo.com/*"
   ],

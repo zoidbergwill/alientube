@@ -20,13 +20,13 @@ module AlienTube {
                 // Check if a version migration is necessary.
                 if (Preferences.getString("lastRunVersion") !== Application.version()) {
                     new Migration(Preferences.getString("lastRunVersion"));
-                    
+
                     /* Update the last run version paramater with the current version so we'll know not to run this migration again. */
                     Preferences.set("lastRunVersion", Application.version());
                 }
             });
-            
-            // Load language files. 
+
+            // Load language files.
             Application.localisationManager = new LocalisationManager(function () {
                 // Load stylesheet
                 if (Application.getCurrentBrowser() === Browser.SAFARI) {
@@ -37,13 +37,13 @@ module AlienTube {
                         document.head.appendChild(stylesheet);
                     });
                 }
-                
+
                 if (Application.currentMediaService() === Service.YouTube) {
                     // Start observer to detect when a new video is loaded.
                     let observer = new MutationObserver(this.youtubeMutationObserver);
                     let config = { attributes: true, childList: true, characterData: true };
                     //observer.observe(document.querySelector("content"), config);
-                    
+
                     // Start a new comment section.
                     this.currentVideoIdentifier = Application.getCurrentVideoId();
                     if (Utilities.isVideoPage) {
@@ -93,7 +93,7 @@ module AlienTube {
                 }
             }.bind(this));
         }
-        
+
         /**
             * Mutation Observer for monitoring for whenver the user changes to a new "page" on YouTube
             * @param mutations A collection of mutation records
@@ -209,7 +209,7 @@ module AlienTube {
                         let template = document.createElement("div");
                         let handlebarHTML = Handlebars.compile(data);
                         template.innerHTML = handlebarHTML();
-    
+
                         if (callback) {
                             callback(template);
                         }
@@ -230,7 +230,7 @@ module AlienTube {
                     break;
             }
         }
-        
+
         /**
          * Get the current version of the extension.
          * @public
@@ -245,14 +245,14 @@ module AlienTube {
                 case Browser.FIREFOX:
                     version = self.options.version;
                     break;
-                    
+
                 case Browser.SAFARI:
                     version = safari.extension.displayVersion;
                     break;
             }
             return version;
         }
-        
+
         /**
          * Get an element from the template collection.
          * @param templateCollection The template collection to use.
@@ -263,15 +263,15 @@ module AlienTube {
             switch (Application.getCurrentBrowser()) {
                 case Browser.CHROME:
                     return templateCollection.getElementById(id).content.cloneNode(true);
-                    
+
                 case Browser.FIREFOX:
                     return templateCollection.querySelector("#" + id).content.cloneNode(true);
-                    
+
                 case Browser.SAFARI:
                     return templateCollection.querySelector("#" + id).content.cloneNode(true);
             }
         }
-        
+
         /**
          * Get the current media website that AlienTube is on
          * @returns A "Service" enum value representing a media service.
@@ -285,7 +285,7 @@ module AlienTube {
             }
             return null;
         }
-        
+
         /**
          * Retrieve the current browser that AlienTube is running on.
          * @returns A "Browser" enum value representing a web browser.

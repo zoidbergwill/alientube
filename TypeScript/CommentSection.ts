@@ -49,14 +49,14 @@ module AlienTube {
                                     finalResultCollection.push(result.data);
                                 }
                             });
-                            
+
                             let preferredPost, preferredSubreddit;
                             if (finalResultCollection.length > 0) {
                                 if (Application.currentMediaService() === Service.YouTube) {
                                     /* Scan the YouTube comment sections for references to subreddits or reddit threads.
                                     These will be prioritised and loaded first.  */
                                     let mRegex = /(?:http|https):\/\/(.[^/]+)\/r\/([A-Za-z0-9][A-Za-z0-9_]{2,20})(?:\/comments\/)?([A-Za-z0-9]*)/g;
-                                    
+
                                     let commentLinks = document.querySelectorAll("#eow-description a");
                                     for (var b = 0, coLen = commentLinks.length; b < coLen; b += 1) {
                                         let linkElement = <HTMLElement>commentLinks[b];
@@ -71,7 +71,7 @@ module AlienTube {
                                         }
                                     }
                                 }
-    	                       
+
                                 // Sort threads into array groups by what subreddit they are in.
                                 let getExcludedSubreddits = Preferences.enforcedExludedSubreddits.concat(Preferences.getArray("excludedSubredditsSelectedByUser"));
                                 let sortedResultCollection = {};
@@ -98,7 +98,7 @@ module AlienTube {
                                     this.threadCollection.sort(function (a, b) {
                                         return b.score > a.score
                                     }.bind(this));
-                                    
+
                                     for (let i = 0, len = this.threadCollection.length; i < len; i += 1) {
                                         if (this.threadCollection[i].subreddit === preferredSubreddit) {
                                             let threadDataForFirstTab = this.threadCollection[i];
@@ -179,7 +179,7 @@ module AlienTube {
         public set(contents: Node) {
             let redditContainer = document.createElement("section");
             redditContainer.id = "alientube";
-            
+
             let commentsContainer;
             let serviceCommentsContainer;
             if (Application.currentMediaService() === Service.YouTube) {
@@ -189,7 +189,7 @@ module AlienTube {
                 commentsContainer = document.querySelector(".comments_container");
                 serviceCommentsContainer = document.querySelector(".comments_hide");
             }
-            
+
             let previousRedditInstance = document.getElementById("alientube");
             if (previousRedditInstance) {
                 commentsContainer.removeChild(previousRedditInstance);
@@ -198,7 +198,7 @@ module AlienTube {
 
             /* Check if Dark Mode is activated, and set AlienTube to dark mode */
             this.checkEnvironmentDarkModestatus(redditContainer);
-            
+
             /* Since there is no implicit event for a css property has changed, I have set a small transition on the body background colour.
                this transition will trigger the transitionend event and we can use that to check if the background colour has changed, thereby activating dark mode. */
             document.body.addEventListener("transitionend", function (e : TransitionEvent) {
@@ -225,7 +225,7 @@ module AlienTube {
                     serviceCommentsContainer.style.height = "0"
                 }
             }
-            
+
             /* Set the setting for whether or not AlienTube should show itself on this YouTube channel */
             let allowOnChannelContainer = document.getElementById("allowOnChannelContainer");
             if (!allowOnChannelContainer) {
